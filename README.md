@@ -1,6 +1,14 @@
 # Digitalfilmtree::Util
 
-TODO: Write a gem description
+Provides methods used in our other gems -- specifically for
+cross-platform compatibilities.
+
+## Contents
+
+### Digitalfilmtree::Util::Mediainfo
+
+Contains vendored binaries for Windows 7 x64 or newer and Mac OS X 10.6
+or newer
 
 ## Installation
 
