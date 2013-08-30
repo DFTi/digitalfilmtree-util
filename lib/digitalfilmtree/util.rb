@@ -45,6 +45,10 @@ module Digitalfilmtree
         end
       end.new
     end
+
+    def self.configure &block
+      block.call Util.platform
+    end
   end
 end
 

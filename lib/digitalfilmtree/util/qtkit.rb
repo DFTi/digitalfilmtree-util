@@ -2,7 +2,7 @@ require 'digitalfilmtree/util'
 
 module Digitalfilmtree
   module Util
-    module Mediainfo
+    module QTKit
       REGEX = {
         :start_timecode => 
           /Time code of first frame\s+\:\s(.+)\n/
@@ -28,13 +28,12 @@ module Digitalfilmtree
         end
       end
 
-      def mediainfo path, key
-        binding.pry
-        raise "Mediainfo bin path unset" unless Mediainfo.bin
+      def update_movie_file path, options
+        raise "QTKit bin path unset" unless QTKit.bin
         if Util.platform.windows?
           path = Util.safe_path path
         end
-        output = `#{Mediainfo.bin} "#{path}"`
+        output = `#{QTKit.bin} "#{path}"`
 
         if key
           output.scan(REGEX[key]).flatten.first

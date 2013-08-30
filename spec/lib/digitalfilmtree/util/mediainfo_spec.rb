@@ -45,7 +45,7 @@ describe Digitalfilmtree::Util::Mediainfo do
 
     describe ".mediainfo" do
       before do
-        Digitalfilmtree::Util::Mediainfo .autoconfigure
+        Digitalfilmtree::Util::Mediainfo.autoconfigure
       end
       subject { Class.new {
         include Digitalfilmtree::Util::Mediainfo
