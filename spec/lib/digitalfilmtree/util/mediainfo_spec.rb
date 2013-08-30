@@ -1,8 +1,7 @@
 require 'digitalfilmtree/util/mediainfo'
 
 describe Digitalfilmtree::Util::Mediainfo do
-  describe "binary path" do
-    
+  describe ".bin (binary path)" do
     it "is initially unset" do
       subject.bin.should be_false
     end
@@ -27,6 +26,7 @@ describe Digitalfilmtree::Util::Mediainfo do
       it "sets the binary to the vendored windows exe" do
         subject.autoconfigure
         subject.bin.should match /windows/
+        File.exists?(subject.bin).should be_true
       end
     end
 
@@ -38,6 +38,7 @@ describe Digitalfilmtree::Util::Mediainfo do
       it "sets the binary to the vendored mac binary" do
         subject.autoconfigure
         subject.bin.should match /mac/
+        File.exists?(subject.bin).should be_true
       end
     end
   end
