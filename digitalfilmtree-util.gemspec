@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["keyvan@digitalfilmtree.com"]
   spec.description   = %q{Contains common utilities and vendored binaries used in libraries related to DigitalFilm Tree's post production workflow}
   spec.summary       = %q{Contains common utilities and vendored binaries}
-  spec.homepage      = ""
+  spec.homepage      = "https://github.com/DFTi/digitalfilmtree-util"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
