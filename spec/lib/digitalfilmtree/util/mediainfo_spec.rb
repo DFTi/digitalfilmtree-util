@@ -1,3 +1,4 @@
+require 'spec_helper'
 require 'digitalfilmtree/util/mediainfo'
 
 describe Digitalfilmtree::Util::Mediainfo do
@@ -39,6 +40,19 @@ describe Digitalfilmtree::Util::Mediainfo do
         subject.autoconfigure
         subject.bin.should match /mac/
         File.exists?(subject.bin).should be_true
+      end
+    end
+
+    describe ".mediainfo" do
+      before do
+        Digitalfilmtree::Util::Mediainfo .autoconfigure
+      end
+      subject { Class.new {
+        include Digitalfilmtree::Util::Mediainfo
+      }.new }
+      it "queries using mediainfo" do
+        version_string = "MediaInfo Command line, \nMediaInfoLib - v0.7.64\n"
+        subject.mediainfo("--version", false).should eq version_string
       end
     end
   end
