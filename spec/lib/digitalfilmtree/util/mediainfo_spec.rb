@@ -2,20 +2,6 @@ require 'spec_helper'
 require 'digitalfilmtree/util/mediainfo'
 
 describe Digitalfilmtree::Util::Mediainfo do
-  describe ".bin (binary path)" do
-    it "is initially unset" do
-      subject.bin.should be_false
-    end
-
-    context "when set" do
-      let(:path) { __FILE__ }
-      before { subject.bin = path }
-      it "is global to the module" do
-        Digitalfilmtree::Util::Mediainfo.bin.should eq path
-      end
-    end
-  end
-
   let(:platform) { Digitalfilmtree::Util.platform } 
 
   describe ".autoconfigure" do
@@ -45,7 +31,7 @@ describe Digitalfilmtree::Util::Mediainfo do
 
     describe ".mediainfo" do
       before do
-        Digitalfilmtree::Util::Mediainfo .autoconfigure
+        Digitalfilmtree::Util::Mediainfo.autoconfigure
       end
       subject { Class.new {
         include Digitalfilmtree::Util::Mediainfo
